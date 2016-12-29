@@ -145,9 +145,11 @@ open class Popover: UIView {
     self.frame = frame
   }
 
+  #if !POPOVER_APP_EXTENSIONS
   open func show(_ contentView: UIView, fromView: UIView) {
     self.show(contentView, fromView: fromView, inView: UIApplication.shared.keyWindow!)
   }
+  #endif
 
   open func show(_ contentView: UIView, fromView: UIView, inView: UIView) {
     let point: CGPoint
@@ -160,9 +162,11 @@ open class Popover: UIView {
     self.show(contentView, point: point, inView: inView)
   }
 
+  #if !POPOVER_APP_EXTENSIONS
   open func show(_ contentView: UIView, point: CGPoint) {
     self.show(contentView, point: point, inView: UIApplication.shared.keyWindow!)
   }
+  #endif
 
   open func show(_ contentView: UIView, point: CGPoint, inView: UIView) {
     self.blackOverlay.autoresizingMask = [.flexibleWidth, .flexibleHeight]
